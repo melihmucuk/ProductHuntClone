@@ -1,0 +1,47 @@
+<ion-view view-title="Todays's Hunts">
+    <ion-content class="has-header">
+        <ion-refresher
+                pulling-text="Pull to refresh..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
+
+        <ion-list>
+            <ion-item collection-repeat="post in posts"
+                      collection-item-width="'100%'">
+                <div class="list card" style="margin: 0">
+                    <div class="item item-avatar">
+                        <img ng-src="{{post.user.image_url.original}}">
+
+                        <h2>{{post.name}}</h2>
+
+                        <p>Hunted by {{post.user.username}}</p>
+
+                        <p>On {{post.day | date:smallDate}}</p>
+                    </div>
+
+                    <div class="item item-body">
+                        <img class="full-image" ng-src="{{post.screenshot_url['300px']}}">
+
+                        <p>
+                            {{post.tagline}}
+                        </p>
+
+                        <p>
+                            <a href="#" class="subdued"><i class="ion-chevron-up"></i> {{post.votes_count}} Upvotes</a>
+                            <a href="#" class="subdued"><i class="ion-android-chat"></i> {{post.comments_count}}
+                                Comments</a>
+                        </p>
+                    </div>
+                </div>
+            </ion-item>
+        </ion-list>
+
+        <!--<div ng-repeat="post in posts">
+
+        </div>-->
+
+        <!--<ion-infinite-scroll on-infinite="nextDay()" distance="25%" ng-if="!end">
+        </ion-infinite-scroll>-->
+
+    </ion-content>
+</ion-view>

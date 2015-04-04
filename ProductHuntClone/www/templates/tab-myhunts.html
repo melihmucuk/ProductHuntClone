@@ -1,0 +1,57 @@
+<ion-view view-title="My Hunts">
+  <ion-content>
+
+    <ion-refresher
+            pulling-text="Pull to refresh..."
+            on-refresh="doRefresh()">
+    </ion-refresher>
+
+    <ion-item>
+      <div class="list card" style="margin: 0">
+        <div class="item item-avatar">
+          <img ng-src="{{myHunts.image_url['48px']}}">
+          <h2>{{myHunts.name}}</h2>
+          <h4>@{{myHunts.username}}</h4>
+        </div>
+        <div class="row">
+          <div class="col"><p><i class="ion-person-stalker"></i> {{myHunts.followers_count}} Followers</p></div>
+          <div class="col"><p><i class="ion-person-add"></i> {{myHunts.followings_count}} Following</p></div>
+        </div>
+      </div>
+    </ion-item>
+
+
+    <ion-item>
+      <div class="card" style="margin: 0">
+        <div class="item item-text-wrap">
+          Last Upvotes by @{{myHunts.username}}
+        </div>
+      </div>
+    </ion-item>
+
+
+    <ion-list>
+      <ion-item collection-repeat="vote in myVotes"
+                collection-item-width="'100%'">
+        <div class="list card" style="margin: 0">
+          <div class="item item-avatar">
+            <img ng-src="{{vote.post.user.image_url.original}}">
+            <h2>{{vote.post.name}}</h2>
+            <p>Hunted by {{vote.post.user.username}}</p>
+            <p>On {{vote.post.day | date:smallDate}}</p>
+          </div>
+
+          <div class="item item-body">
+            <p>
+              {{vote.post.tagline}}
+            </p>
+            <p>
+              <a href="#" class="subdued"><i class="ion-chevron-up"></i> {{vote.post.votes_count}} Upvotes</a>
+              <a href="#" class="subdued"><i class="ion-android-chat"></i> {{vote.post.comments_count}} Comments</a>
+            </p>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

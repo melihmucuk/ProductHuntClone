@@ -1,0 +1,18 @@
+{
+  "name": "ProductHuntClone",
+  "app_id": "",
+  "proxies": [
+        {
+          "path": "/posts",
+          "proxyUrl": "https://api.producthunt.com/v1/posts"
+        },
+        {
+          "path": "/myhunts",
+          "proxyUrl": "https://api.producthunt.com/v1/users/baymucuk"
+        },
+        {
+            "path" : "/myvotes",
+            "proxyUrl": "https://api.producthunt.com/v1/users/44726/votes?order=desc&per_page=50"
+        }
+      ]
+}
